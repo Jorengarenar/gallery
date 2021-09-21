@@ -1,0 +1,22 @@
+author: Jorengarenar
+title:  Joren's Gallery
+
+remote_theme: jekyll/minima
+
+show_excerpts: true
+
+minima:
+  date_format: "%F"
+  skin: dark
+
+header_external_links:
+  - title: About
+    url:   https://joren.ga
+  - title: Instagram
+    url:   https://www.instagram.com/jorengarenar
+  - title: DeviantArt
+    url:   https://www.deviantart.com/jorengarenarx
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

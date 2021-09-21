@@ -1,0 +1,33 @@
+name: Code
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v1
+        with:
+          ref: 'master'
+      - name: Deploy code
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          enable_jekyll: true
+          cname: gallery.joren.ga
+      - name: Checkout images
+        uses: actions/checkout@v1
+        with:
+          ref: 'images'
+          clean: false
+      - name: Deploy images
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          destination_dir: images
+          enable_jekyll: true
